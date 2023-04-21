@@ -4,4 +4,3 @@
 
 A simple to use website that allows commuters to see the various routes throughout all the stops and to update them as the routes change.
 
-Reference: codecademy.com
