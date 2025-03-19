@@ -6,7 +6,7 @@
     <link
       rel="shortcut icon"
       type="image/x-icon"
-      href="{% static 'routes/djitney.png' %}"
+      href="https://www.codecademy.com/favicon.ico"
     />
     <link
       rel="stylesheet"
@@ -33,10 +33,10 @@
           <h1 class="title">Django Djitney</h1>
         </div>
         <nav class="navbar">
-          <a class="nav-item" href="{% url 'routes:home' %}">Home</a>
-         <a class="nav-item" href="{% url 'routes:lines' %}">Lines</a> 
-        <a class="nav-item" href="{% url 'routes:stations' %}">Stations</a> 
- <a class="nav-item" href="{% url 'routes:stops' %}">Stops</a> 
+          <a class="nav-item" href="{% url 'home' %}">Home</a>
+          <a class="nav-item" href="{% url 'lines' %}">Lines</a>
+          <a class="nav-item" href="{% url 'stations' %}">Stations</a>
+          <a class="nav-item" href="{% url 'stops' %}">Stops</a>
         </nav>
       </header>
       <main>{% block content %}{% endblock %}</main>

@@ -2,9 +2,9 @@ from django.shortcuts import render
 from .models import Line, Station, Stop
 from .forms import  StopForm, LineForm, StationForm
 # Add your imports below:
-from django.views.generic import TemplateView
-from django.views.generic import ListView 
-from django.views.generic.edit import CreateView,UpdateView,DeleteView 
+from django.views.generic import TemplateView, ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 class HomeView(TemplateView):
   template_name = "routes/home.html"
 
@@ -16,51 +16,63 @@ class HomeView(TemplateView):
     return context
 
 # Create your views here.
+
+# Lines Views for listing, creating, updating, and deleting
 class LinesView(ListView):
+  model = Line
   template_name = 'routes/lines.html'
-  model =Line
-  
-class CreateLineView (CreateView):
-  model=Line
-  template_name ='routes/add_line.html'
-  form_class =LineForm 
+
+class CreateLineView(CreateView):
+  model = Line
+  template_name = 'routes/add_line.html'
+  form_class = LineForm
+
 class UpdateLineView(UpdateView):
-  model=Line
-  template_name ='routes/update_line.html'
-  form_class =LineForm 
+  model = Line
+  template_name = 'routes/update_line.html'
+  form_class = LineForm
+
 class DeleteLineView(DeleteView):
-  model=Line
-  template_name ='routes/delete_line.html'
-  success_url  ="/routeslines" 
+  model = Line
+  template_name = 'routes/delete_line.html'
+  success_url = '/lines/'
 
-class StationsView(ListView):
-  model=Station 
-  template_name='routes/stations.html'
+# Station views for listing, creating, updating, and deleting
+class StationView(ListView):
+  model = Station
+  template_name = 'routes/stations.html'
+
 class CreateStationView(CreateView):
-  model=Station 
-  template_name='routes/add_station.html'
-  form_class =StationForm
-class UpdateStationView(UpdateView):
-  model=Station 
-  template_name='routes/update_station.html'
-  form_class =StationForm  
-class DeleteStationView(DeleteView):
-  model=Station 
-  template_name='routes/delete_station.html'
-  success_url ="/routesstations/"  
+  model = Station
+  template_name = 'routes/add_station.html'
+  form_class = StationForm
 
-class StopsView(ListView):
-  model=Stop 
-  template_name='routes/stops.html'
+class UpdateStationView(UpdateView):
+  model = Station
+  template_name = 'routes/update_station.html'
+  form_class = StationForm
+
+class DeleteStationView(DeleteView):
+  model = Station
+  template_name = 'routes/delete_station.html'
+  success_url = '/stations/'
+
+# Stop views for listing, creating, updating, and deleting
+class StopView(ListView):
+  model = Stop
+  template_name = 'routes/stops.html'
+
 class CreateStopView(CreateView):
-  model=Stop 
-  template_name='routes/add_stop.html'
-  form_class =StopForm
+  model = Stop
+  template_name = 'routes/add_stop.html'
+  form_class = StopForm
+
 class UpdateStopView(UpdateView):
-  model=Stop 
-  template_name='routes/update_stop.html'
-  form_class =StopForm  
+  model = Stop
+  template_name = 'routes/update_stop.html'
+  form_class = StopForm
+
 class DeleteStopView(DeleteView):
-  model=Stop
-  template_name='routes/delete_stop.html'
-  success_url ="/routesstops/"  
+  model = Stop
+  template_name = 'routes/delete_stop.html'
+  success_url = '/stops/'

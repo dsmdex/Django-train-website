@@ -5,7 +5,7 @@ class Line(models.Model):
   name = models.CharField(unique=True, max_length=200)
 
   def get_absolute_url(self):
-    return "/routeslines"
+    return "/lines"
 
   def __str__(self):
     return f"{self.name}"
@@ -14,9 +14,9 @@ class Line(models.Model):
 class Station(models.Model):
   name = models.CharField(unique=True, max_length=200)
   accessible = models.BooleanField(default=False)
-  last_cleaned_date=models.DateTimeField(null=True)
+
   def get_absolute_url(self):
-    return "/routesstations"
+    return "/stations"
 
   def __str__(self):
     return f"{self.name}{' (♿)' if self.accessible else ''}"
@@ -28,7 +28,7 @@ class Stop(models.Model):
     unique_together = (('line', 'stop_number'))
 
   def get_absolute_url(self):
-    return "/routesstops"
+    return "/stops"
 
   line = models.ForeignKey(Line, on_delete=models.CASCADE)
   station = models.ForeignKey(Station, on_delete=models.CASCADE)
